@@ -90,11 +90,8 @@ public class Aterrizar extends JPanel {
 						dtf.format(LocalDateTime.now()),
 						TipoOperacion.ATERRIZAJE
 						);
-				System.out.println(solicitud);
 				BaseDatos.pendientes.add(solicitud);
 				reset();
-				BaseDatos.imprimirPendientes();
-				
 			}
 		});
 		return panelBotones;

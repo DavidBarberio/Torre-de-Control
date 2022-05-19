@@ -86,11 +86,8 @@ public class Despegar extends JPanel {
 						dtf.format(LocalDateTime.now()),
 						TipoOperacion.DESPEGUE
 						);
-				System.out.println(solicitud);
 				BaseDatos.pendientes.add(solicitud);
 				reset();
-				BaseDatos.imprimirPendientes();
-				
 			}
 		});
 		return panelBotones;

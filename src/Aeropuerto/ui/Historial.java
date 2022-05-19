@@ -25,6 +25,7 @@ public class Historial extends JPanel {
 	
 	public JPanel crearPanelFormulario() {
 		JPanel panelFormulario = new JPanel();
+		panelFormulario.setLayout(new BoxLayout(panelFormulario, BoxLayout.Y_AXIS));
 		
 		if(BaseDatos.autorizadas.isEmpty()) {
 			JLabel empty = new JLabel("No hay solicitudes autorizadas");
