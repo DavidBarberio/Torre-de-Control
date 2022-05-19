@@ -15,9 +15,9 @@ import java.time.format.DateTimeFormatter;
 public class Despegar extends JPanel {
 	private JButton solicitar = new JButton("Solicitar");
 	private JButton volver = new JButton("Volver");
-	JLabel codeLabel = new JLabel("Código Avión: ");
+	JLabel codeLabel = new JLabel("CÃ³digo AviÃ³n: ");
 	JTextField codeField = new JTextField(25);
-	JLabel fechaLabel = new JLabel("Fecha Operación: ");
+	JLabel fechaLabel = new JLabel("Fecha OperaciÃ³n: ");
 	JTextField fechaField = new JTextField(25);
 	JLabel procedenciaLabel = new JLabel("Procedencia: ");
 	JTextField procedenciaField = new JTextField(25);

@@ -2,9 +2,6 @@ package Aeropuerto.ui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 
 public class Menu extends JFrame {
 	private JButton opcion1;
@@ -44,7 +41,7 @@ public class Menu extends JFrame {
 		opcion2 = new JButton("2.- Solicitar permiso para despegue");
 		opcion2.addActionListener(e -> seleccionarDespegue());
 		
-		opcion3 = new JButton("3.- Autorizar Operación");
+		opcion3 = new JButton("3.- Autorizar Operaciï¿½n");
 		opcion3.addActionListener(e -> seleccionarAutorizar());
 		
 		opcion4 = new JButton("4.- Historial Operaciones");

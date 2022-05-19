@@ -41,9 +41,9 @@ public class Autorizar extends JPanel {
 		BaseDatos.pendientes.forEach(x -> {
 			JPanel solicitud = new JPanel();
 			solicitud.setLayout(new FlowLayout());
-			JLabel operacion = new JLabel("Operación: " + x.tipo);
+			JLabel operacion = new JLabel("OperaciÃ³n: " + x.tipo);
 			JLabel hora = new JLabel("Hora: " + x.hora);
-			JLabel codigo = new JLabel("Código Avión: " + x.codigo);
+			JLabel codigo = new JLabel("CÃ³digo AviÃ³n: " + x.codigo);
 			solicitud.add(operacion);
 			solicitud.add(hora);
 			solicitud.add(codigo);
