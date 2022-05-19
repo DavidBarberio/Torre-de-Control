@@ -22,9 +22,12 @@ public class Solicitud {
 
 	@Override
 	public String toString() {
-		return "Solicitud --> Codigo Avión = " + codigo + ", Fecha = " + fecha + ", Procedencia = " + procedencia
+		return "Codigo AviÃ³n = " + codigo + ", Fecha = " + fecha + ", Procedencia = " + procedencia
 				+ ", Urgente = " + urgente + ", Hora = " + hora + ", Tipo = " + tipo;
 	}
 	
+	public String toFile() {
+		return codigo + "\t" + tipo + "\t" + hora;
+	}
 	
 }

@@ -1,5 +1,7 @@
 package Aeropuerto.persistencia;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,5 +14,20 @@ public class BaseDatos {
 	public static void imprimirPendientes() {
 		System.out.println("Solicitudes Pendientes");
 		pendientes.forEach(x -> System.out.println(x));
+	}
+
+	public static void generarFichero(){
+		PrintWriter salida = null;
+		try {
+			salida = new PrintWriter("Historial.txt");
+			for (Solicitud s : autorizadas) {
+				salida.println(s.toFile());
+			}
+			salida.flush();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}finally {
+			salida.close();
+		}
 	}
 }

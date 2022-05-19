@@ -15,10 +15,10 @@ public class Inicio extends JPanel {
 		super();
 		setLayout(new BorderLayout());
 		add(crearTitulo(), BorderLayout.NORTH);
-		//escala imagen
+		//Escala imagen
 		Image newimg = portada.getScaledInstance(500, 350,  java.awt.Image.SCALE_SMOOTH);
 		ImageIcon imageIcon = new ImageIcon(newimg); 
-		//asigna a componenente JLabel
+		//Asigna a componenente JLabel
 		imgLabel.setIcon(imageIcon);
 		add(imgLabel, BorderLayout.CENTER);
 	}

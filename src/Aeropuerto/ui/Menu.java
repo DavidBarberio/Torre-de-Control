@@ -43,7 +43,7 @@ public class Menu extends JFrame {
 		opcion2 = new JButton("2.- Solicitar permiso para despegue");
 		opcion2.addActionListener(e -> seleccionarDespegue());
 		
-		opcion3 = new JButton("3.- Autorizar Operación");
+		opcion3 = new JButton("3.- Autorizar Operacion");
 		opcion3.addActionListener(e -> seleccionarAutorizar());
 		
 		opcion4 = new JButton("4.- Historial Operaciones");

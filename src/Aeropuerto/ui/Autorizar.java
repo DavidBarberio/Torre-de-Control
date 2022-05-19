@@ -2,15 +2,9 @@ package Aeropuerto.ui;
 
 import javax.swing.*;
 
-import Aeropuerto.modelo.Solicitud;
-import Aeropuerto.modelo.TipoOperacion;
 import Aeropuerto.persistencia.BaseDatos;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Autorizar extends JPanel {
 	JLabel titulo = new JLabel("Autorizar Solicitud");
@@ -55,6 +49,7 @@ public class Autorizar extends JPanel {
 			
 			autorizar.addActionListener(e -> {
 					BaseDatos.autorizadas.add(x);
+					BaseDatos.generarFichero();
 					BaseDatos.pendientes.remove(x);
 					panelFormulario.remove(solicitud);
 					panelFormulario.revalidate();
