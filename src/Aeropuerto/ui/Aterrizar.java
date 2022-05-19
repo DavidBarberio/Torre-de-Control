@@ -14,7 +14,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Aterrizar extends JPanel {
 	private JButton solicitar = new JButton("Solicitar");
-	private JButton volver = new JButton("Volver");
 	private JCheckBox especial = new JCheckBox("Urgente", false);
 	JLabel codeLabel = new JLabel("Código Avión: ");
 	JTextField codeField = new JTextField(25);
@@ -30,8 +29,6 @@ public class Aterrizar extends JPanel {
 		add(crearTitulo(), BorderLayout.NORTH);
 		add(crearPanelBotones(), BorderLayout.SOUTH);
 		add(crearPanelFormulario(), BorderLayout.CENTER);
-		
-		
 	}
 	public void reset() {
 		codeField.setText(null);
@@ -75,7 +72,6 @@ public class Aterrizar extends JPanel {
 	public JPanel crearPanelBotones() {
 		JPanel panelBotones = new JPanel();
 		panelBotones.setLayout(new FlowLayout());
-		panelBotones.add(volver);
 		panelBotones.add(solicitar);
 		
 		
@@ -101,8 +97,6 @@ public class Aterrizar extends JPanel {
 				
 			}
 		});
-		volver.setBackground(Colores.ROJO_BG);
-		volver.setForeground(Colores.ROJO_FG);
 		return panelBotones;
 	}
 }

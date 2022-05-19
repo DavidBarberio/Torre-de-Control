@@ -14,7 +14,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Despegar extends JPanel {
 	private JButton solicitar = new JButton("Solicitar");
-	private JButton volver = new JButton("Volver");
 	JLabel codeLabel = new JLabel("Código Avión: ");
 	JTextField codeField = new JTextField(25);
 	JLabel fechaLabel = new JLabel("Fecha Operación: ");
@@ -69,7 +68,6 @@ public class Despegar extends JPanel {
 	public JPanel crearPanelBotones() {
 		JPanel panelBotones = new JPanel();
 		panelBotones.setLayout(new FlowLayout());
-		panelBotones.add(volver);
 		panelBotones.add(solicitar);
 		
 		
@@ -95,8 +93,6 @@ public class Despegar extends JPanel {
 				
 			}
 		});
-		volver.setBackground(Colores.ROJO_BG);
-		volver.setForeground(Colores.ROJO_FG);
 		return panelBotones;
 	}
 }
