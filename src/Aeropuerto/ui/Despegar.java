@@ -14,10 +14,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Despegar extends JPanel {
 	private JButton solicitar = new JButton("Solicitar");
-	JLabel codeLabel = new JLabel("Código Avión: ");
+	JLabel codeLabel = new JLabel("Codigo Avion: ");
 	JTextField codeField = new JTextField(25);
-	JLabel fechaLabel = new JLabel("Fecha Operación: ");
-	JTextField fechaField = new JTextField(25);
+	JLabel fechaLabel = new JLabel("Fecha Operacion: ");
+	JTextField fechaFieldDay = new JTextField(2);
+	JTextField fechaFieldMonth = new JTextField(2);
+	JTextField fechaFieldYear = new JTextField(4);
 	JLabel procedenciaLabel = new JLabel("Procedencia: ");
 	JTextField procedenciaField = new JTextField(25);
 	JLabel titulo = new JLabel("Solicitud Despegue");
@@ -33,7 +35,9 @@ public class Despegar extends JPanel {
 	}
 	public void reset() {
 		codeField.setText(null);
-		fechaField.setText(null);
+		fechaFieldDay.setText(null);
+		fechaFieldMonth.setText(null);
+		fechaFieldYear.setText(null);
 		procedenciaField.setText(null);
 	}
 	
@@ -54,7 +58,11 @@ public class Despegar extends JPanel {
 		
 		JPanel panelFecha = new JPanel();
 		panelFecha.add(fechaLabel);
-		panelFecha.add(fechaField);
+		panelFecha.add(fechaFieldDay);
+		panelFecha.add(new JLabel("/"));
+		panelFecha.add(fechaFieldMonth);
+		panelFecha.add(new JLabel("/"));
+		panelFecha.add(fechaFieldYear);
 		panelFormulario.add(panelFecha);
 		
 		JPanel panelProcedencia = new JPanel();
@@ -77,16 +85,17 @@ public class Despegar extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-				
+				String fechaFormateada = fechaFieldDay.getText() + "/" + fechaFieldMonth.getText() + "/" + fechaFieldYear.getText();
+
 				Solicitud solicitud = new Solicitud(
 						codeField.getText(),
-						fechaField.getText(),
+						fechaFormateada,
 						procedenciaField.getText(),
 						false,
 						dtf.format(LocalDateTime.now()),
 						TipoOperacion.DESPEGUE
 						);
-				BaseDatos.pendientes.add(solicitud);
+				BaseDatos.anadirSolicitud(solicitud);
 				reset();
 			}
 		});

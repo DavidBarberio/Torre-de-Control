@@ -13,7 +13,7 @@ public class Historial extends JPanel {
 		super();
 		setLayout(new BorderLayout());
 		add(crearTitulo(), BorderLayout.NORTH);
-		add(crearPanelFormulario(), BorderLayout.CENTER);
+		add(mostrarHistorial(), BorderLayout.CENTER);
 	}
 	
 	public JPanel crearTitulo() {
@@ -23,28 +23,28 @@ public class Historial extends JPanel {
 		return panelTitulo;
 	}
 	
-	public JPanel crearPanelFormulario() {
-		JPanel panelFormulario = new JPanel();
-		panelFormulario.setLayout(new BoxLayout(panelFormulario, BoxLayout.Y_AXIS));
-		
+	public JPanel mostrarHistorial() {
+		JPanel mostrarHistorial = new JPanel();
+		mostrarHistorial.setLayout(new BoxLayout(mostrarHistorial, BoxLayout.Y_AXIS));
+
 		if(BaseDatos.autorizadas.isEmpty()) {
 			JLabel empty = new JLabel("No hay solicitudes autorizadas");
 			empty.setForeground(Colores.ROJO_BG);
-			panelFormulario.add(empty);
+			mostrarHistorial.add(empty);
+
 		} else {
-		
-			BaseDatos.autorizadas.forEach(x -> {
+				BaseDatos.autorizadas.forEach(x -> {
 				JPanel solicitud = new JPanel();
 				solicitud.setLayout(new FlowLayout());
-				JLabel operacion = new JLabel("Operación: " + x.tipo);
+				JLabel operacion = new JLabel("Operacion: " + x.tipo);
 				JLabel hora = new JLabel("Hora: " + x.hora);
-				JLabel codigo = new JLabel("Código Avión: " + x.codigo);
+				JLabel codigo = new JLabel("Codigo Avion: " + x.codigo);
 				solicitud.add(operacion);
 				solicitud.add(hora);
 				solicitud.add(codigo);
-				panelFormulario.add(solicitud);
+				mostrarHistorial.add(solicitud);
 			});
 		}
-		return panelFormulario;
+		return mostrarHistorial;
 	}
 }

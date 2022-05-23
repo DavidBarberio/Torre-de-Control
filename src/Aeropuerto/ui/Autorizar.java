@@ -13,7 +13,7 @@ public class Autorizar extends JPanel {
 		super();
 		setLayout(new BorderLayout());
 		add(crearTitulo(), BorderLayout.NORTH);
-		add(crearPanelFormulario(), BorderLayout.CENTER);
+		add(crearListaSolicitudes(), BorderLayout.CENTER);
 	}
 	
 	public JPanel crearTitulo() {
@@ -23,26 +23,28 @@ public class Autorizar extends JPanel {
 		return panelTitulo;
 	}
 	
-	public JPanel crearPanelFormulario() {
-		JPanel panelFormulario = new JPanel();
-		panelFormulario.setLayout(new BoxLayout(panelFormulario, BoxLayout.Y_AXIS));
+	public JPanel crearListaSolicitudes() {
+		JPanel listaSolicitudes = new JPanel();
+		listaSolicitudes.setLayout(new BoxLayout(listaSolicitudes, BoxLayout.Y_AXIS));
 
 		if(BaseDatos.pendientes.isEmpty()) {
 			JLabel empty = new JLabel("No hay solicitudes pendientes");
 			empty.setForeground(Colores.ROJO_BG);
-			panelFormulario.add(empty);
+			listaSolicitudes.add(empty);
 		} else {
 		
 		BaseDatos.pendientes.forEach(x -> {
 			JPanel solicitud = new JPanel();
 			solicitud.setLayout(new FlowLayout());
-			JLabel operacion = new JLabel("Operación: " + x.tipo);
-			JLabel hora = new JLabel("Hora: " + x.hora);
-			JLabel codigo = new JLabel("Código Avión: " + x.codigo);
+			JLabel operacion = new JLabel("Operacion: " + x.tipo + " | ");
+			JLabel hora = new JLabel("Hora: " + x.hora + " | ");
+			JLabel codigo = new JLabel("Codigo Avion: " + x.codigo + " | ");
+			JLabel urgente = new JLabel("Urgente: " + x.urgente);
 			solicitud.add(operacion);
 			solicitud.add(hora);
 			solicitud.add(codigo);
-			panelFormulario.add(solicitud);
+			solicitud.add(urgente);
+			listaSolicitudes.add(solicitud);
 			
 			JButton autorizar = new JButton("Autorizar");
 			autorizar.setBackground(Colores.VERDE_BG);
@@ -52,13 +54,13 @@ public class Autorizar extends JPanel {
 					BaseDatos.autorizadas.add(x);
 					BaseDatos.generarFichero();
 					BaseDatos.pendientes.remove(x);
-					panelFormulario.remove(solicitud);
-					panelFormulario.revalidate();
-					panelFormulario.repaint();
+					listaSolicitudes.remove(solicitud);
+					listaSolicitudes.revalidate();
+					listaSolicitudes.repaint();
 					});
 				solicitud.add(autorizar);
 			});
 		}
-		return panelFormulario;
+		return listaSolicitudes;
 	}
 }

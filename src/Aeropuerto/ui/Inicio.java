@@ -16,7 +16,7 @@ public class Inicio extends JPanel {
 		setLayout(new BorderLayout());
 		add(crearTitulo(), BorderLayout.NORTH);
 		//Escala imagen
-		Image newimg = portada.getScaledInstance(500, 350,  java.awt.Image.SCALE_SMOOTH);
+		Image newimg = portada.getScaledInstance(550, 350,  java.awt.Image.SCALE_SMOOTH);
 		ImageIcon imageIcon = new ImageIcon(newimg); 
 		//Asigna a componenente JLabel
 		imgLabel.setIcon(imageIcon);

@@ -16,7 +16,7 @@ public class Menu extends JFrame {
 	
 	public Menu() throws HeadlessException {
 		super("Torre de Control");
-		setSize(750, 400);
+		setSize(800, 400);
 		container = this.getContentPane();
 		container.setLayout(new BorderLayout());
 		JPanel panel = new JPanel();
@@ -31,6 +31,7 @@ public class Menu extends JFrame {
 		setVisible(true);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		seleccionarInicio();
 	}
 
 	private void generarMenu(JPanel panel) {
